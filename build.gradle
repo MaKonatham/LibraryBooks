@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.galvanize.tmo'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = "1.8"
+sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
@@ -20,4 +20,3 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
-targetCompatibility = JavaVersion.VERSION_1_9
