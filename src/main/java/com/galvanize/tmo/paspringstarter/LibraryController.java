@@ -3,9 +3,12 @@ package com.galvanize.tmo.paspringstarter;
 import com.galvanize.tmo.paspringstarter.Dao.Memorable;
 import com.galvanize.tmo.paspringstarter.Model.Book;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class LibraryController {
@@ -21,20 +24,23 @@ public class LibraryController {
     }
 
     @PostMapping("/api/books")
-    public Book addBook(@RequestBody Book newBook) {
+    public ResponseEntity addBook(@RequestBody Book newBook) {
         dao.save(newBook);
-        return newBook;
+        return ResponseEntity.status(HttpStatus.CREATED).body(newBook);
 
     }
 
     @GetMapping("/api/books")
-    public List<Book> getAllBooks() {
-        return dao.findAll();
+    public ResponseEntity getAllBooks() {
+
+        List<Book> booksList = dao.findAll();
+        Collections.sort(booksList, new com.galvanize.tmo.paspringstarter.Util.BookComparator());
+        return ResponseEntity.status(HttpStatus.OK).body(Map.of("books", booksList));
     }
 
     @DeleteMapping("/api/books")
-    public HttpStatus deleteAllBooks() {
+    public ResponseEntity deleteAllBooks() {
         dao.deleteAll();
-        return HttpStatus.NO_CONTENT;
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("");
     }
 }
