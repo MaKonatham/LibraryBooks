@@ -41,11 +41,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getYearOfPublished() {
+    public String getYearPublished() {
         return yearPublished;
     }
 
-    public void setYearOfPublished(String yearOfPublished) {
-        this.yearPublished = yearOfPublished;
+    public void setYearPublished(String yearPublished) {
+        this.yearPublished = yearPublished;
     }
 }
