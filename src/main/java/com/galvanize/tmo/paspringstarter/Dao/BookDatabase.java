@@ -32,6 +32,8 @@ public class BookDatabase implements Memorable {
     public void save(Object obj) {
         Book book = (Book) obj;
         if(book.getId() == null) {
+            this.autoIncrement++;
+            book.setId(this.autoIncrement);
             this.list.add(book);
         }
     }
