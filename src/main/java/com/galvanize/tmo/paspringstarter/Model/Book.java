@@ -4,17 +4,17 @@ public class Book {
     private Long id;
     private String author;
     private String title;
-    private String yearOfPublished;
+    private String yearPublished;
 
     public Book() {
 
     }
 
-    public Book(Long id, String author, String title, String yearOfPublished) {
+    public Book(Long id, String author, String title, String yearPublished) {
         this.id = id;
         this.author = author;
         this.title = title;
-        this.yearOfPublished = yearOfPublished;
+        this.yearPublished = yearPublished;
     }
 
     public Long getId() {
@@ -42,10 +42,10 @@ public class Book {
     }
 
     public String getYearOfPublished() {
-        return yearOfPublished;
+        return yearPublished;
     }
 
     public void setYearOfPublished(String yearOfPublished) {
-        this.yearOfPublished = yearOfPublished;
+        this.yearPublished = yearOfPublished;
     }
 }

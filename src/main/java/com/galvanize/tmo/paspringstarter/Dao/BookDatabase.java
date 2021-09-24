@@ -15,8 +15,8 @@ public class BookDatabase implements Memorable {
     public BookDatabase() {
         this.autoIncrement = 0L;
         this.list = new ArrayList<>();
-        this.list.add(new Book(1L, "Philip K. Dick", "Do Androids Dream of Electric Sheep?", "1968"));
-        this.autoIncrement++;
+        /*this.list.add(new Book(1L, "Philip K. Dick", "Do Androids Dream of Electric Sheep?", "1968"));
+        this.autoIncrement++;*/
         this.list.add(new Book(2L, "William Gibson", "Neuromancer", "1984"));
         this.autoIncrement++;
         this.list.add(new Book(3L, "Douglas Adams", "The Hitchhiker's Guide to the Galaxy", "1979"));
