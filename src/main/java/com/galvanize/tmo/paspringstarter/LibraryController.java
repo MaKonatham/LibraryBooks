@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,7 +36,9 @@ public class LibraryController {
 
         List<Book> booksList = dao.findAll();
         Collections.sort(booksList, new com.galvanize.tmo.paspringstarter.Util.BookComparator());
-        return ResponseEntity.status(HttpStatus.OK).body(Map.of("books", booksList));
+        Map bookMap = new HashMap<>();
+        bookMap.put("books", booksList);
+        return ResponseEntity.status(HttpStatus.OK).body(bookMap);
     }
 
     @DeleteMapping("/api/books")
